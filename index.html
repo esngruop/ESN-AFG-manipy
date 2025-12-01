@@ -1,0 +1,2169 @@
+<!doctype html>
+<html lang="fa" dir="rtl"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>حسابداری من - سیستم مدیریت مالی حرفه‌ای</title> <!-- PWA Meta Tags --> <!-- PWA Meta Tags --> 
+  <meta name="application-name" content="حسابداری من"> 
+  <meta name="apple-mobile-web-app-capable" content="yes"> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+  <meta name="apple-mobile-web-app-title" content="حسابداری من"> 
+  <meta name="mobile-web-app-capable" content="yes"> 
+  <meta name="msapplication-TileColor" content="#5D5CDE"> 
+  <meta name="msapplication-tap-highlight" content="no"> 
+  <meta name="theme-color" content="#5D5CDE"> 
+  <meta name="color-scheme" content="light dark"> <!-- Manifest --> 
+  <link rel="manifest" href="./manifest.json"> <!-- Icons --> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png"> 
+  <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png"> 
+  <link rel="shortcut icon" href="./icons/favicon.ico"> <!-- Apple Touch Icons --> 
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png"> 
+  <link rel="apple-touch-icon" sizes="152x152" href="./icons/apple-touch-icon-152x152.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon-180x180.png"> <!-- Microsoft Tiles --> 
+  <meta name="msapplication-TileImage" content="./icons/mstile-144x144.png"> 
+  <meta name="msapplication-config" content="./browserconfig.xml"> <!-- Performance Optimizations --> 
+  <link rel="preconnect" href="https://cdn.tailwindcss.com"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com"> <!-- Startup Images for iOS --> 
+  <link rel="apple-touch-startup-image" href="./icons/apple-splash-2048-2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"> 
+  <link rel="apple-touch-startup-image" href="./icons/apple-splash-1668-2224.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"> 
+  <link rel="apple-touch-startup-image" href="./icons/apple-splash-1536-2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"> 
+  <link rel="apple-touch-startup-image" href="./icons/apple-splash-1125-2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"> 
+  <link rel="apple-touch-startup-image" href="./icons/apple-splash-1242-2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"> 
+  <link rel="apple-touch-startup-image" href="./icons/apple-splash-750-1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="apple-touch-startup-image" href="./icons/apple-splash-640-1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"> 
+  <script src="https://cdn.tailwindcss.com"></script> 
+  <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'persian': ['Tahoma', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+        
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script> 
+  <style>
+        body {
+            font-family: 'Tahoma', Arial, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .dark body {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+        }
+        
+        .dark .glass {
+            background: rgba(30, 41, 59, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .dark .glass-strong {
+            background: rgba(30, 41, 59, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .stat-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-card:active {
+            transform: translateY(-3px) scale(1.01);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+        
+        .bottom-nav {
+            backdrop-filter: blur(25px);
+            background: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .dark .bottom-nav {
+            background: rgba(30, 41, 59, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-item {
+            transition: all 0.3s ease;
+            color: #64748b;
+        }
+        
+        .dark .nav-item {
+            color: #94a3b8;
+        }
+        
+        .nav-item.active {
+            color: #5D5CDE;
+            transform: translateY(-2px);
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-1px);
+            color: #5D5CDE;
+        }
+        
+        .form-input {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            color: #1e293b;
+        }
+        
+        .dark .form-input {
+            background: rgba(51, 65, 85, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+        }
+        
+        .form-input:focus {
+            background: rgba(255, 255, 255, 1);
+            border-color: #5D5CDE;
+            box-shadow: 0 0 0 3px rgba(93, 92, 222, 0.1);
+            outline: none;
+        }
+        
+        .dark .form-input:focus {
+            background: rgba(51, 65, 85, 1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #5D5CDE, #7c3aed);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #4c51bf, #6b46c1);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .btn-success:hover {
+            background: linear-gradient(135deg, #047857, #065f46);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+        
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        .btn-warning:hover {
+            background: linear-gradient(135deg, #d97706, #b45309);
+        }
+        
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .currency-flag {
+            width: 20px;
+            height: 15px;
+            display: inline-block;
+            margin-left: 8px;
+            border-radius: 2px;
+        }
+        
+        .profile-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5D5CDE, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .debt-card {
+            border-right: 4px solid;
+        }
+        
+        .debt-received {
+            border-right-color: #10b981;
+        }
+        
+        .debt-given {
+            border-right-color: #ef4444;
+        }
+        
+        .deposit-received {
+            border-right-color: #3b82f6;
+        }
+        
+        .deposit-given {
+            border-right-color: #f59e0b;
+        }
+    </style> 
+ </head> 
+ <body class="font-persian"> <!-- Header --> 
+  <div class="glass-strong rounded-b-3xl p-6 mb-6 shadow-xl"> 
+   <div class="flex items-center justify-between"> 
+    <div> 
+     <h1 class="text-2xl font-bold text-gray-800 dark:text-white mb-1">حسابداری من</h1> 
+     <p class="text-gray-600 dark:text-gray-300 text-sm">سیستم مدیریت مالی حرفه‌ای</p> 
+    </div> 
+    <div class="flex items-center space-x-3 space-x-reverse"> 
+     <div class="profile-avatar" onclick="showSection('settings')"> <i class="fas fa-user"></i> 
+     </div> 
+     <div class="text-right"> 
+      <p class="text-sm font-bold text-gray-800 dark:text-white" id="currentUserName">کاربر اصلی</p> 
+      <p class="text-xs text-gray-600 dark:text-gray-300">حساب فعال</p> 
+     </div> 
+    </div> 
+   </div> 
+  </div> <!-- Main Content --> 
+  <div class="px-4 pb-24"> <!-- Dashboard Section --> 
+   <div id="dashboard" class="section animate-fade-in"> <!-- Stats Grid by Currency --> 
+    <div id="dashboardStats" class="mb-6"> <!-- Content will be generated by JavaScript --> 
+    </div> <!-- Quick Overview --> 
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"> <!-- Account Balance Card --> 
+     <div class="glass rounded-2xl p-5"> 
+      <div class="flex justify-between items-center mb-4"> 
+       <h3 class="text-gray-800 dark:text-white font-bold text-lg">حساب‌های من</h3> <a href="#" class="text-blue-600 dark:text-blue-400 text-sm hover:underline" onclick="showSection('accounts')">مشاهده همه</a> 
+      </div> 
+      <div id="accountsPreview"> <!-- Content will be generated by JavaScript --> 
+      </div> 
+     </div> <!-- Debts & Deposits Overview --> 
+     <div class="glass rounded-2xl p-5"> 
+      <div class="flex justify-between items-center mb-4"> 
+       <h3 class="text-gray-800 dark:text-white font-bold text-lg">قرض و امانات</h3> <a href="#" class="text-blue-600 dark:text-blue-400 text-sm hover:underline" onclick="showSection('debts')">مشاهده همه</a> 
+      </div> 
+      <div id="debtsPreview"> <!-- Content will be generated by JavaScript --> 
+      </div> 
+     </div> 
+    </div> <!-- Recent Transactions Card --> 
+    <div class="glass rounded-2xl p-5"> 
+     <div class="flex justify-between items-center mb-4"> 
+      <h3 class="text-gray-800 dark:text-white font-bold text-lg">تراکنش‌های اخیر</h3> <a href="#" class="text-blue-600 dark:text-blue-400 text-sm hover:underline" onclick="showSection('transactions')">مشاهده همه</a> 
+     </div> 
+     <div id="transactionsPreview"> <!-- Content will be generated by JavaScript --> 
+     </div> 
+    </div> 
+   </div> <!-- Transactions Section --> 
+   <div id="transactions" class="section hidden"> <!-- Add Transaction Form --> 
+    <div class="glass rounded-2xl p-5 mb-6"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4"> <i class="fas fa-plus-circle ml-2"></i> تراکنش جدید </h3> 
+     <div class="space-y-4"> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">نوع تراکنش</label> <select class="form-input w-full rounded-xl p-3 text-base" id="transactionType"> <option value="income">درآمد</option> <option value="expense">هزینه</option> <option value="transfer">انتقال</option> </select> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">حساب</label> <select class="form-input w-full rounded-xl p-3 text-base" id="transactionAccount"> <option value="">انتخاب کنید</option> </select> 
+      </div> 
+      <div id="transferToAccount" class="hidden"> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">به حساب</label> <select class="form-input w-full rounded-xl p-3 text-base" id="transactionToAccount"> <option value="">انتخاب کنید</option> </select> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">مبلغ</label> 
+       <input type="number" class="form-input w-full rounded-xl p-3 text-base" placeholder="مبلغ را وارد کنید" id="transactionAmount"> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">تاریخ</label> 
+       <input type="date" class="form-input w-full rounded-xl p-3 text-base" id="transactionDate"> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">دسته‌بندی</label> <select class="form-input w-full rounded-xl p-3 text-base" id="transactionCategory"> <option value="food">غذا</option> <option value="transport">حمل‌ونقل</option> <option value="entertainment">سرگرمی</option> <option value="shopping">خرید</option> <option value="bills">قبوض</option> <option value="salary">حقوق</option> <option value="business">کسب‌وکار</option> <option value="other">سایر</option> </select> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">توضیحات</label> <textarea class="form-input w-full rounded-xl p-3 text-base" rows="3" placeholder="توضیحات اختیاری" id="transactionDescription"></textarea> 
+      </div> <button class="w-full btn-primary text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300" onclick="addTransaction()"> <i class="fas fa-check ml-2"></i> ثبت تراکنش </button> 
+     </div> 
+    </div> <!-- Transaction List --> 
+    <div class="glass rounded-2xl p-5"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4">تراکنش‌های من</h3> 
+     <div class="flex space-x-2 space-x-reverse mb-4"> <button class="px-4 py-2 rounded-lg bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-sm filter-btn active" data-filter="all">همه</button> <button class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-400 text-sm hover:bg-gray-100 dark:hover:bg-gray-700/30 filter-btn" data-filter="income">درآمد</button> <button class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-400 text-sm hover:bg-gray-100 dark:hover:bg-gray-700/30 filter-btn" data-filter="expense">هزینه</button> <button class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-400 text-sm hover:bg-gray-100 dark:hover:bg-gray-700/30 filter-btn" data-filter="transfer">انتقال</button> 
+     </div> 
+     <div id="transactionsList"> <!-- Content will be generated by JavaScript --> 
+     </div> 
+    </div> 
+   </div> <!-- Accounts Section --> 
+   <div id="accounts" class="section hidden"> <!-- Add Account Form --> 
+    <div class="glass rounded-2xl p-5 mb-6"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4"> <i class="fas fa-plus ml-2"></i> حساب جدید </h3> 
+     <div class="space-y-4"> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">نام حساب</label> 
+       <input type="text" class="form-input w-full rounded-xl p-3 text-base" placeholder="نام حساب را وارد کنید" id="accountName"> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">نوع حساب</label> <select class="form-input w-full rounded-xl p-3 text-base" id="accountType"> <option value="cash">💵 نقدی</option> <option value="bank">🏦 بانکی</option> <option value="card">💳 کارت</option> <option value="wallet">👛 کیف پول دیجیتال</option> </select> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">ارز</label> <select class="form-input w-full rounded-xl p-3 text-base" id="currencySelect"> <option value="USD">🇺🇸 دلار آمریکا (USD)</option> <option value="EUR">🇪🇺 یورو (EUR)</option> <option value="IRR">🇮🇷 تومان (IRR)</option> <option value="AFN">🇦🇫 افغانی (AFN)</option> <option value="GBP">🇬🇧 پوند انگلیس (GBP)</option> <option value="AED">🇦🇪 درهم امارات (AED)</option> </select> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">موجودی اولیه</label> 
+       <input type="number" class="form-input w-full rounded-xl p-3 text-base" placeholder="0" id="accountBalance"> 
+      </div> <button class="w-full btn-primary text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300" onclick="createAccount()"> <i class="fas fa-plus ml-2"></i> ایجاد حساب </button> 
+     </div> 
+    </div> <!-- Accounts List --> 
+    <div class="glass rounded-2xl p-5"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4">حساب‌های من</h3> 
+     <div id="accountsList"> <!-- Content will be generated by JavaScript --> 
+     </div> 
+    </div> 
+   </div> <!-- Debts & Deposits Section --> 
+   <div id="debts" class="section hidden"> <!-- Add Person Form --> 
+    <div class="glass rounded-2xl p-5 mb-6"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4"> <i class="fas fa-user-plus ml-2"></i> شخص جدید </h3> 
+     <div class="space-y-4"> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">نام شخص</label> 
+       <input type="text" class="form-input w-full rounded-xl p-3 text-base" placeholder="نام شخص را وارد کنید" id="personName"> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">نوع شخص</label> <select class="form-input w-full rounded-xl p-3 text-base" id="personType"> <option value="individual">👤 شخص حقیقی</option> <option value="legal">🏢 شخص حقوقی</option> </select> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">شماره تماس</label> 
+       <input type="tel" class="form-input w-full rounded-xl p-3 text-base" placeholder="شماره تماس (اختیاری)" id="personPhone"> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">توضیحات</label> <textarea class="form-input w-full rounded-xl p-3 text-base" rows="2" placeholder="توضیحات اختیاری" id="personNotes"></textarea> 
+      </div> <button class="w-full btn-success text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300" onclick="addPerson()"> <i class="fas fa-user-plus ml-2"></i> اضافه کردن شخص </button> 
+     </div> 
+    </div> <!-- Add Debt/Deposit Form --> 
+    <div class="glass rounded-2xl p-5 mb-6"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4"> <i class="fas fa-handshake ml-2"></i> قرض یا امانت جدید </h3> 
+     <div class="space-y-4"> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">نوع</label> <select class="form-input w-full rounded-xl p-3 text-base" id="debtType"> <option value="debt_received">💰 قرض گرفته‌ام (از دیگران)</option> <option value="debt_given">💸 قرض داده‌ام (به دیگران)</option> <option value="deposit_received">🏛️ امانت گرفته‌ام (از دیگران)</option> <option value="deposit_given">🤝 امانت داده‌ام (به دیگران)</option> </select> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">شخص</label> <select class="form-input w-full rounded-xl p-3 text-base" id="debtPerson"> <option value="">انتخاب کنید</option> </select> 
+      </div> 
+      <div class="grid grid-cols-2 gap-4"> 
+       <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">مبلغ</label> 
+        <input type="number" class="form-input w-full rounded-xl p-3 text-base" placeholder="مبلغ" id="debtAmount"> 
+       </div> 
+       <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">ارز</label> <select class="form-input w-full rounded-xl p-3 text-base" id="debtCurrency"> <option value="USD">🇺🇸 دلار آمریکا</option> <option value="EUR">🇪🇺 یورو</option> <option value="IRR">🇮🇷 تومان</option> <option value="AFN">🇦🇫 افغانی</option> </select> 
+       </div> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">تاریخ</label> 
+       <input type="date" class="form-input w-full rounded-xl p-3 text-base" id="debtDate"> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">تاریخ سررسید (اختیاری)</label> 
+       <input type="date" class="form-input w-full rounded-xl p-3 text-base" id="debtDueDate"> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">توضیحات</label> <textarea class="form-input w-full rounded-xl p-3 text-base" rows="3" placeholder="توضیحات قرض یا امانت" id="debtDescription"></textarea> 
+      </div> <button class="w-full btn-warning text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300" onclick="addDebt()"> <i class="fas fa-handshake ml-2"></i> ثبت قرض/امانت </button> 
+     </div> 
+    </div> <!-- Debts & Deposits List --> 
+    <div class="glass rounded-2xl p-5"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4">قرض‌ها و امانات</h3> 
+     <div class="flex space-x-2 space-x-reverse mb-4"> <button class="px-4 py-2 rounded-lg bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-sm debt-filter-btn active" data-filter="all">همه</button> <button class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-400 text-sm hover:bg-gray-100 dark:hover:bg-gray-700/30 debt-filter-btn" data-filter="debt_received">قرض گرفته</button> <button class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-400 text-sm hover:bg-gray-100 dark:hover:bg-gray-700/30 debt-filter-btn" data-filter="debt_given">قرض داده</button> <button class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-400 text-sm hover:bg-gray-100 dark:hover:bg-gray-700/30 debt-filter-btn" data-filter="deposit">امانات</button> 
+     </div> 
+     <div id="debtsList"> <!-- Content will be generated by JavaScript --> 
+     </div> 
+    </div> 
+   </div> <!-- Currencies Section --> 
+   <div id="currencies" class="section hidden"> <!-- Currency List --> 
+    <div class="glass rounded-2xl p-5 mb-6"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4"> <i class="fas fa-coins ml-2"></i> ارزهای موجود </h3> 
+     <div id="currenciesList"> <!-- Content will be generated by JavaScript --> 
+     </div> 
+    </div> <!-- Exchange Rates --> 
+    <div class="glass rounded-2xl p-5 mb-6"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4">نرخ تبدیل ارزها</h3> 
+     <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">نرخ تبدیل بین ارزها را به‌روزرسانی کنید</p> 
+     <div class="space-y-4"> 
+      <div class="grid grid-cols-2 gap-4"> 
+       <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">از ارز</label> <select class="form-input w-full rounded-xl p-3 text-base" id="fromCurrency"> <option value="USD">🇺🇸 دلار آمریکا</option> <option value="EUR">🇪🇺 یورو</option> <option value="AFN">🇦🇫 افغانی</option> <option value="IRR">🇮🇷 تومان</option> <option value="GBP">🇬🇧 پوند انگلیس</option> <option value="AED">🇦🇪 درهم امارات</option> </select> 
+       </div> 
+       <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">به ارز</label> <select class="form-input w-full rounded-xl p-3 text-base" id="toCurrency"> <option value="IRR">🇮🇷 تومان</option> <option value="USD">🇺🇸 دلار آمریکا</option> <option value="EUR">🇪🇺 یورو</option> <option value="AFN">🇦🇫 افغانی</option> <option value="GBP">🇬🇧 پوند انگلیس</option> <option value="AED">🇦🇪 درهم امارات</option> </select> 
+       </div> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">نرخ تبدیل</label> 
+       <input type="number" class="form-input w-full rounded-xl p-3 text-base" placeholder="50000" id="exchangeRate"> 
+      </div> <button class="w-full btn-primary text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300" onclick="updateExchangeRate()"> <i class="fas fa-exchange-alt ml-2"></i> به‌روزرسانی نرخ </button> 
+     </div> 
+    </div> <!-- Add Currency Form --> 
+    <div class="glass rounded-2xl p-5"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4">افزودن ارز جدید</h3> 
+     <div class="space-y-4"> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">نام ارز</label> 
+       <input type="text" class="form-input w-full rounded-xl p-3 text-base" placeholder="مثال: درهم امارات" id="newCurrencyName"> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">کد ارز</label> 
+       <input type="text" class="form-input w-full rounded-xl p-3 text-base" placeholder="مثال: AED" id="newCurrencyCode"> 
+      </div> 
+      <div> <label class="block text-gray-700 dark:text-gray-300 text-sm mb-2">نماد ارز</label> 
+       <input type="text" class="form-input w-full rounded-xl p-3 text-base" placeholder="مثال: 🇦🇪" id="newCurrencySymbol"> 
+      </div> <button class="w-full btn-primary text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300" onclick="addNewCurrency()"> <i class="fas fa-plus ml-2"></i> افزودن ارز </button> 
+     </div> 
+    </div> 
+   </div> <!-- Settings Section --> 
+   <div id="settings" class="section hidden"> <!-- Profile Section --> 
+    <div class="glass rounded-2xl p-5 mb-6"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4"> <i class="fas fa-user ml-2"></i> پروفایل کاربری </h3> 
+     <div class="flex items-center space-x-4 space-x-reverse mb-4"> 
+      <div class="profile-avatar"> <i class="fas fa-user"></i> 
+      </div> 
+      <div class="flex-1"> 
+       <input type="text" class="form-input w-full rounded-xl p-3 text-base" value="کاربر اصلی" id="profileName"> 
+       <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">نام کاربری</p> 
+      </div> 
+     </div> <button class="w-full btn-primary text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300" onclick="saveProfile()"> <i class="fas fa-save ml-2"></i> ذخیره تغییرات </button> 
+    </div> <!-- User Accounts Management --> 
+    <div class="glass rounded-2xl p-5 mb-6"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4"> <i class="fas fa-users ml-2"></i> مدیریت حساب‌های کاربری </h3> 
+     <div class="space-y-3 mb-4"> 
+      <div class="flex justify-between items-center p-3 rounded-lg bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-700"> 
+       <div class="flex items-center"> 
+        <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-sm font-bold ml-3"> <i class="fas fa-user"></i> 
+        </div> <span class="font-bold text-gray-800 dark:text-white">کاربر اصلی</span> <span class="text-green-600 dark:text-green-400 text-sm mr-2">(فعال)</span> 
+       </div> <span class="text-green-600 dark:text-green-400 text-sm">حساب جاری</span> 
+      </div> 
+     </div> 
+     <div class="border-t border-gray-200 dark:border-gray-600 pt-4"> 
+      <h4 class="text-gray-700 dark:text-gray-300 font-bold mb-3">ایجاد حساب جدید</h4> 
+      <div class="flex space-x-2 space-x-reverse"> 
+       <input type="text" class="form-input flex-1 rounded-xl p-3 text-base" placeholder="نام حساب کاربری جدید" id="newUserName"> <button class="btn-primary text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300" onclick="addNewUser()"> <i class="fas fa-plus"></i> </button> 
+      </div> 
+     </div> 
+    </div> <!-- Data Management --> 
+    <div class="glass rounded-2xl p-5"> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-4"> <i class="fas fa-cog ml-2"></i> مدیریت داده‌ها </h3> 
+     <div class="space-y-3"> <button class="w-full btn-success text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300 flex items-center justify-center" onclick="exportData()"> <i class="fas fa-download ml-2"></i> دانلود پشتیبان (JSON) </button> <button class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300 flex items-center justify-center" onclick="importData()"> <i class="fas fa-upload ml-2"></i> بازیابی از پشتیبان </button> <button class="w-full btn-danger text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300 flex items-center justify-center" onclick="showDeleteConfirmation()"> <i class="fas fa-trash-alt ml-2"></i> پاک کردن همه داده‌ها </button> 
+     </div> 
+    </div> 
+   </div> 
+  </div> <!-- Bottom Navigation --> 
+  <div class="fixed bottom-0 left-0 right-0 bottom-nav rounded-t-3xl p-4 shadow-2xl"> 
+   <div class="flex justify-around items-center"> <button class="nav-item active flex flex-col items-center" onclick="showSection('dashboard')"> <i class="fas fa-home text-xl mb-1"></i> <span class="text-xs">داشبورد</span> </button> <button class="nav-item flex flex-col items-center" onclick="showSection('transactions')"> <i class="fas fa-exchange-alt text-xl mb-1"></i> <span class="text-xs">تراکنش‌ها</span> </button> <button class="nav-item flex flex-col items-center" onclick="showSection('accounts')"> <i class="fas fa-wallet text-xl mb-1"></i> <span class="text-xs">حساب‌ها</span> </button> <button class="nav-item flex flex-col items-center" onclick="showSection('debts')"> <i class="fas fa-handshake text-xl mb-1"></i> <span class="text-xs">قرض و امانات</span> </button> <button class="nav-item flex flex-col items-center" onclick="showSection('currencies')"> <i class="fas fa-coins text-xl mb-1"></i> <span class="text-xs">ارزها</span> </button> <button class="nav-item flex flex-col items-center" onclick="showSection('settings')"> <i class="fas fa-cog text-xl mb-1"></i> <span class="text-xs">تنظیمات</span> </button> 
+   </div> 
+  </div> <!-- Confirmation Modal --> 
+  <div id="confirmModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"> 
+   <div class="glass-strong rounded-2xl p-6 max-w-sm w-full mx-4 animate-slide-up"> 
+    <div class="text-center"> <i class="fas fa-exclamation-triangle text-red-500 text-4xl mb-4"></i> 
+     <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-3">تأیید حذف</h3> 
+     <p class="text-gray-600 dark:text-gray-400 mb-6">آیا مطمئن هستید که می‌خواهید همه داده‌ها را پاک کنید؟ این عمل قابل بازگشت نیست.</p> 
+     <div class="flex space-x-3 space-x-reverse"> <button class="flex-1 py-2 px-4 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500 transition-all" onclick="hideDeleteConfirmation()"> انصراف </button> <button class="flex-1 py-2 px-4 btn-danger text-white rounded-lg transition-all" onclick="confirmDelete()"> حذف </button> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script>
+        // Global storage
+        let accounts = JSON.parse(localStorage.getItem('accounts') || '[]');
+        let transactions = JSON.parse(localStorage.getItem('transactions') || '[]');
+        let persons = JSON.parse(localStorage.getItem('persons') || '[]');
+        let debts = JSON.parse(localStorage.getItem('debts') || '[]');
+        let defaultCurrency = localStorage.getItem('defaultCurrency') || 'USD';
+        let exchangeRates = JSON.parse(localStorage.getItem('exchangeRates') || '{"USD": 1, "EUR": 1.1, "AFN": 0.0138, "IRR": 0.000023, "GBP": 1.25, "AED": 0.27}');
+        let currencies = JSON.parse(localStorage.getItem('currencies') || '[{"code": "USD", "name": "دلار آمریکا", "flag": "🇺🇸"}, {"code": "EUR", "name": "یورو", "flag": "🇪🇺"}, {"code": "IRR", "name": "تومان", "flag": "🇮🇷"}, {"code": "AFN", "name": "افغانی", "flag": "🇦🇫"}, {"code": "GBP", "name": "پوند انگلیس", "flag": "🇬🇧"}, {"code": "AED", "name": "درهم امارات", "flag": "🇦🇪"}]');
+        
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionName);
+            targetSection.classList.remove('hidden');
+            targetSection.classList.add('animate-fade-in');
+            
+            // Update active nav item
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.nav-item').classList.add('active');
+            
+            // Refresh content for specific sections
+            if (sectionName === 'dashboard') {
+                renderDashboard();
+            } else if (sectionName === 'transactions') {
+                renderTransactionAccountOptions();
+                renderTransactionsList();
+            } else if (sectionName === 'accounts') {
+                renderAccountsList();
+            } else if (sectionName === 'debts') {
+                renderPersonOptions();
+                renderDebtsList();
+            } else if (sectionName === 'currencies') {
+                renderCurrenciesList();
+            }
+        }
+        
+        function renderDashboard() {
+            renderDashboardStats();
+            renderAccountsPreview();
+            renderDebtsPreview();
+            renderTransactionsPreview();
+        }
+        
+        function renderDashboardStats() {
+            const statsContainer = document.getElementById('dashboardStats');
+            
+            // Group accounts by currency
+            const accountsByCurrency = {};
+            accounts.forEach(account => {
+                if (!accountsByCurrency[account.currency]) {
+                    accountsByCurrency[account.currency] = {
+                        totalBalance: 0,
+                        accountCount: 0,
+                        currency: account.currency
+                    };
+                }
+                accountsByCurrency[account.currency].totalBalance += account.balance;
+                accountsByCurrency[account.currency].accountCount += 1;
+            });
+            
+            // Group transactions by currency for current month
+            const currentMonth = new Date().getMonth();
+            const currentYear = new Date().getFullYear();
+            const transactionsByCurrency = {};
+            
+            transactions.forEach(transaction => {
+                const transactionDate = new Date(transaction.date);
+                if (transactionDate.getMonth() === currentMonth && transactionDate.getFullYear() === currentYear) {
+                    const currency = accounts.find(acc => acc.id === transaction.accountId)?.currency || 'USD';
+                    
+                    if (!transactionsByCurrency[currency]) {
+                        transactionsByCurrency[currency] = {
+                            income: 0,
+                            expense: 0,
+                            currency: currency
+                        };
+                    }
+                    
+                    if (transaction.type === 'income') {
+                        transactionsByCurrency[currency].income += transaction.amount;
+                    } else if (transaction.type === 'expense') {
+                        transactionsByCurrency[currency].expense += transaction.amount;
+                    }
+                }
+            });
+            
+            // Combine data and create stats cards
+            const allCurrencies = new Set([...Object.keys(accountsByCurrency), ...Object.keys(transactionsByCurrency)]);
+            
+            if (allCurrencies.size === 0) {
+                statsContainer.innerHTML = `
+                    <div class="glass rounded-2xl p-6 text-center">
+                        <i class="fas fa-chart-pie text-gray-400 text-4xl mb-3"></i>
+                        <h3 class="text-gray-800 dark:text-white font-bold text-lg mb-2">خوش آمدید!</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">برای شروع، ابتدا یک حساب ایجاد کنید</p>
+                        <button class="btn-primary text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all" onclick="showSection('accounts')">
+                            ایجاد حساب اول
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            let statsHTML = '';
+            
+            allCurrencies.forEach(currency => {
+                const accountData = accountsByCurrency[currency] || { totalBalance: 0, accountCount: 0, currency };
+                const transactionData = transactionsByCurrency[currency] || { income: 0, expense: 0, currency };
+                const currencySymbol = getCurrencySymbol(currency);
+                const currencyFlag = getCurrencyFlag(currency);
+                
+                statsHTML += `
+                    <div class="mb-6">
+                        <h4 class="text-gray-800 dark:text-white font-bold text-lg mb-3 flex items-center">
+                            <span class="ml-2">${currencyFlag}</span>
+                            آمار ${getCurrencyName(currency)}
+                        </h4>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                            <div class="glass stat-card rounded-xl p-4 text-center">
+                                <i class="fas fa-wallet text-green-500 text-xl mb-2"></i>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">کل دارایی</p>
+                                <p class="text-gray-800 dark:text-white text-lg font-bold">${accountData.totalBalance.toLocaleString()} ${currencySymbol}</p>
+                            </div>
+                            <div class="glass stat-card rounded-xl p-4 text-center">
+                                <i class="fas fa-credit-card text-blue-500 text-xl mb-2"></i>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">تعداد حساب</p>
+                                <p class="text-gray-800 dark:text-white text-lg font-bold">${accountData.accountCount}</p>
+                            </div>
+                            <div class="glass stat-card rounded-xl p-4 text-center">
+                                <i class="fas fa-arrow-up text-green-400 text-xl mb-2"></i>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">درآمد ماه</p>
+                                <p class="text-gray-800 dark:text-white text-lg font-bold">${transactionData.income.toLocaleString()} ${currencySymbol}</p>
+                            </div>
+                            <div class="glass stat-card rounded-xl p-4 text-center">
+                                <i class="fas fa-arrow-down text-red-400 text-xl mb-2"></i>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">هزینه ماه</p>
+                                <p class="text-gray-800 dark:text-white text-lg font-bold">${transactionData.expense.toLocaleString()} ${currencySymbol}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            statsContainer.innerHTML = statsHTML;
+        }
+        
+        function renderAccountsPreview() {
+            const container = document.getElementById('accountsPreview');
+            
+            if (accounts.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-6">
+                        <i class="fas fa-plus-circle text-gray-400 text-3xl mb-3"></i>
+                        <p class="text-gray-600 dark:text-gray-400 mb-3">هیچ حسابی ایجاد نشده</p>
+                        <button class="btn-primary text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all" onclick="showSection('accounts')">
+                            ایجاد حساب اول
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            const previewAccounts = accounts.slice(0, 3);
+            const accountsHTML = previewAccounts.map(account => {
+                const typeIcon = getAccountTypeIcon(account.type);
+                const currencySymbol = getCurrencySymbol(account.currency);
+                
+                return `
+                    <div class="flex justify-between items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-700/30 mb-2 card-hover">
+                        <div class="flex items-center">
+                            <span class="text-xl ml-3">${typeIcon}</span>
+                            <div>
+                                <h4 class="font-bold text-gray-800 dark:text-white text-sm">${account.name}</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-xs">${account.currency}</p>
+                            </div>
+                        </div>
+                        <p class="font-bold text-gray-800 dark:text-white text-sm">${account.balance.toLocaleString()} ${currencySymbol}</p>
+                    </div>
+                `;
+            }).join('');
+            
+            let moreAccountsText = '';
+            if (accounts.length > 3) {
+                moreAccountsText = `<p class="text-gray-500 text-sm text-center mt-2">و ${accounts.length - 3} حساب دیگر...</p>`;
+            }
+            
+            container.innerHTML = accountsHTML + moreAccountsText;
+        }
+        
+        function renderDebtsPreview() {
+            const container = document.getElementById('debtsPreview');
+            
+            if (debts.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-6">
+                        <i class="fas fa-handshake text-gray-400 text-3xl mb-3"></i>
+                        <p class="text-gray-600 dark:text-gray-400 mb-3">قرض و امانتی ثبت نشده</p>
+                        <button class="btn-warning text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all" onclick="showSection('debts')">
+                            ثبت اولین قرض/امانت
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            const previewDebts = debts.slice(0, 3);
+            const debtsHTML = previewDebts.map(debt => {
+                const person = persons.find(p => p.id === debt.personId);
+                const currencySymbol = getCurrencySymbol(debt.currency);
+                
+                let typeIcon, typeColor, typeText;
+                if (debt.type === 'debt_received') {
+                    typeIcon = 'fa-arrow-down';
+                    typeColor = 'text-green-500';
+                    typeText = 'قرض گرفته';
+                } else if (debt.type === 'debt_given') {
+                    typeIcon = 'fa-arrow-up';
+                    typeColor = 'text-red-500';
+                    typeText = 'قرض داده';
+                } else if (debt.type === 'deposit_received') {
+                    typeIcon = 'fa-inbox';
+                    typeColor = 'text-blue-500';
+                    typeText = 'امانت گرفته';
+                } else {
+                    typeIcon = 'fa-paper-plane';
+                    typeColor = 'text-orange-500';
+                    typeText = 'امانت داده';
+                }
+                
+                return `
+                    <div class="flex justify-between items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-700/30 mb-2 card-hover">
+                        <div class="flex items-center">
+                            <i class="fas ${typeIcon} ${typeColor} text-lg ml-3"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-800 dark:text-white text-sm">${typeText}</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-xs">${person?.name || 'نامشخص'}</p>
+                            </div>
+                        </div>
+                        <p class="font-bold text-gray-800 dark:text-white text-sm">${debt.amount.toLocaleString()} ${currencySymbol}</p>
+                    </div>
+                `;
+            }).join('');
+            
+            let moreDebtsText = '';
+            if (debts.length > 3) {
+                moreDebtsText = `<p class="text-gray-500 text-sm text-center mt-2">و ${debts.length - 3} مورد دیگر...</p>`;
+            }
+            
+            container.innerHTML = debtsHTML + moreDebtsText;
+        }
+        
+        function renderTransactionsPreview() {
+            const container = document.getElementById('transactionsPreview');
+            
+            if (transactions.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-6">
+                        <i class="fas fa-exchange-alt text-gray-400 text-3xl mb-3"></i>
+                        <p class="text-gray-600 dark:text-gray-400 mb-3">هیچ تراکنشی ثبت نشده</p>
+                        <button class="btn-primary text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all" onclick="showSection('transactions')">
+                            ثبت تراکنش اول
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            const recentTransactions = transactions.slice(-3).reverse();
+            const transactionsHTML = recentTransactions.map(transaction => {
+                const account = accounts.find(acc => acc.id === transaction.accountId);
+                const currencySymbol = getCurrencySymbol(account?.currency || 'USD');
+                const typeIcon = transaction.type === 'income' ? 'fa-arrow-up text-green-500' : 
+                                transaction.type === 'expense' ? 'fa-arrow-down text-red-500' : 'fa-exchange-alt text-blue-500';
+                
+                return `
+                    <div class="flex justify-between items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-700/30 mb-2 card-hover">
+                        <div class="flex items-center">
+                            <i class="fas ${typeIcon} text-lg ml-3"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-800 dark:text-white text-sm">${transaction.description || getCategoryName(transaction.category)}</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-xs">${account?.name || 'نامشخص'} • ${transaction.date}</p>
+                            </div>
+                        </div>
+                        <p class="font-bold text-gray-800 dark:text-white text-sm">${transaction.amount.toLocaleString()} ${currencySymbol}</p>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = transactionsHTML;
+        }
+        
+        function createAccount() {
+            const name = document.getElementById('accountName').value.trim();
+            const type = document.getElementById('accountType').value;
+            const currency = document.getElementById('currencySelect').value;
+            const balance = parseFloat(document.getElementById('accountBalance').value) || 0;
+            
+            if (!name) {
+                showCustomAlert('لطفاً نام حساب را وارد کنید', 'error');
+                return;
+            }
+            
+            const account = {
+                id: Date.now(),
+                name,
+                type,
+                currency,
+                balance,
+                created: new Date().toISOString().split('T')[0]
+            };
+            
+            accounts.push(account);
+            localStorage.setItem('accounts', JSON.stringify(accounts));
+            
+            // Clear form
+            document.getElementById('accountName').value = '';
+            document.getElementById('accountBalance').value = '';
+            
+            // Update UI
+            renderAccountsList();
+            showCustomAlert('حساب با موفقیت ایجاد شد!', 'success');
+        }
+        
+        function renderAccountsList() {
+            const container = document.getElementById('accountsList');
+            
+            if (accounts.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="fas fa-university text-gray-400 text-4xl mb-3"></i>
+                        <p class="text-gray-600 dark:text-gray-400">هیچ حسابی ایجاد نشده</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const accountsHTML = accounts.map(account => {
+                const typeIcon = getAccountTypeIcon(account.type);
+                const currencySymbol = getCurrencySymbol(account.currency);
+                
+                return `
+                    <div class="card-hover p-4 rounded-xl bg-gray-50 dark:bg-gray-700/30 mb-3">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-2xl ml-3">${typeIcon}</span>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 dark:text-white">${account.name}</h4>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm">${getCurrencyName(account.currency)} (${account.currency})</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-gray-800 dark:text-white text-lg">${account.balance.toLocaleString()} ${currencySymbol}</p>
+                                <button class="text-red-500 text-sm hover:text-red-700 transition-all" onclick="deleteAccount(${account.id})">
+                                    <i class="fas fa-trash"></i> حذف
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = accountsHTML;
+        }
+        
+        function deleteAccount(accountId) {
+            showCustomConfirm('آیا مطمئن هستید که می‌خواهید این حساب را حذف کنید؟', () => {
+                accounts = accounts.filter(account => account.id !== accountId);
+                localStorage.setItem('accounts', JSON.stringify(accounts));
+                renderAccountsList();
+                renderDashboard();
+                showCustomAlert('حساب حذف شد', 'success');
+            });
+        }
+        
+        function addPerson() {
+            const name = document.getElementById('personName').value.trim();
+            const type = document.getElementById('personType').value;
+            const phone = document.getElementById('personPhone').value.trim();
+            const notes = document.getElementById('personNotes').value.trim();
+            
+            if (!name) {
+                showCustomAlert('لطفاً نام شخص را وارد کنید', 'error');
+                return;
+            }
+            
+            const person = {
+                id: Date.now(),
+                name,
+                type,
+                phone,
+                notes,
+                created: new Date().toISOString().split('T')[0]
+            };
+            
+            persons.push(person);
+            localStorage.setItem('persons', JSON.stringify(persons));
+            
+            // Clear form
+            document.getElementById('personName').value = '';
+            document.getElementById('personPhone').value = '';
+            document.getElementById('personNotes').value = '';
+            
+            // Update UI
+            renderPersonOptions();
+            showCustomAlert('شخص با موفقیت اضافه شد!', 'success');
+        }
+        
+        function renderPersonOptions() {
+            const select = document.getElementById('debtPerson');
+            const optionsHTML = persons.map(person => 
+                `<option value="${person.id}">${person.name} ${person.type === 'legal' ? '(حقوقی)' : '(حقیقی)'}</option>`
+            ).join('');
+            
+            select.innerHTML = '<option value="">انتخاب کنید</option>' + optionsHTML;
+        }
+        
+        function addDebt() {
+            const type = document.getElementById('debtType').value;
+            const personId = parseInt(document.getElementById('debtPerson').value);
+            const amount = parseFloat(document.getElementById('debtAmount').value);
+            const currency = document.getElementById('debtCurrency').value;
+            const date = document.getElementById('debtDate').value;
+            const dueDate = document.getElementById('debtDueDate').value;
+            const description = document.getElementById('debtDescription').value.trim();
+            
+            if (!personId || !amount || !date) {
+                showCustomAlert('لطفاً همه فیلدهای ضروری را پر کنید', 'error');
+                return;
+            }
+            
+            const debt = {
+                id: Date.now(),
+                type,
+                personId,
+                amount,
+                currency,
+                date,
+                dueDate,
+                description,
+                status: 'active', // active, paid, settled
+                created: new Date().toISOString()
+            };
+            
+            debts.push(debt);
+            localStorage.setItem('debts', JSON.stringify(debts));
+            
+            // Clear form
+            document.getElementById('debtAmount').value = '';
+            document.getElementById('debtDueDate').value = '';
+            document.getElementById('debtDescription').value = '';
+            
+            renderDebtsList();
+            showCustomAlert('قرض/امانت با موفقیت ثبت شد!', 'success');
+        }
+        
+        function renderDebtsList() {
+            const container = document.getElementById('debtsList');
+            
+            if (debts.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="fas fa-handshake text-gray-400 text-4xl mb-3"></i>
+                        <p class="text-gray-600 dark:text-gray-400">هیچ قرض یا امانتی ثبت نشده</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const sortedDebts = [...debts].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            const debtsHTML = sortedDebts.map(debt => {
+                const person = persons.find(p => p.id === debt.personId);
+                const currencySymbol = getCurrencySymbol(debt.currency);
+                
+                let typeIcon, typeColor, typeText, borderClass;
+                if (debt.type === 'debt_received') {
+                    typeIcon = 'fa-arrow-down';
+                    typeColor = 'text-green-500';
+                    typeText = 'قرض گرفته‌ام از';
+                    borderClass = 'debt-received';
+                } else if (debt.type === 'debt_given') {
+                    typeIcon = 'fa-arrow-up';
+                    typeColor = 'text-red-500';
+                    typeText = 'قرض داده‌ام به';
+                    borderClass = 'debt-given';
+                } else if (debt.type === 'deposit_received') {
+                    typeIcon = 'fa-inbox';
+                    typeColor = 'text-blue-500';
+                    typeText = 'امانت گرفته‌ام از';
+                    borderClass = 'deposit-received';
+                } else {
+                    typeIcon = 'fa-paper-plane';
+                    typeColor = 'text-orange-500';
+                    typeText = 'امانت داده‌ام به';
+                    borderClass = 'deposit-given';
+                }
+                
+                const isOverdue = debt.dueDate && new Date(debt.dueDate) < new Date() && debt.status === 'active';
+                
+                return `
+                    <div class="debt-card ${borderClass} card-hover p-4 rounded-xl bg-gray-50 dark:bg-gray-700/30 mb-3">
+                        <div class="flex justify-between items-start">
+                            <div class="flex items-start">
+                                <i class="fas ${typeIcon} ${typeColor} text-xl mt-1 ml-3"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 dark:text-white">${typeText} ${person?.name || 'نامشخص'}</h4>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                                        ${person?.type === 'legal' ? '🏢 حقوقی' : '👤 حقیقی'} • ${debt.date}
+                                        ${debt.dueDate ? ` • سررسید: ${debt.dueDate}` : ''}
+                                    </p>
+                                    ${debt.description ? `<p class="text-gray-600 dark:text-gray-400 text-sm mt-1">${debt.description}</p>` : ''}
+                                    ${isOverdue ? '<p class="text-red-500 text-sm mt-1"><i class="fas fa-exclamation-triangle ml-1"></i>سررسید گذشته</p>' : ''}
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-gray-800 dark:text-white text-lg">${debt.amount.toLocaleString()} ${currencySymbol}</p>
+                                <div class="flex space-x-2 space-x-reverse mt-2">
+                                    ${debt.status === 'active' ? 
+                                        `<button class="text-green-500 text-sm hover:text-green-700 transition-all" onclick="settleDebt(${debt.id})">
+                                            <i class="fas fa-check"></i> تسویه
+                                        </button>` : 
+                                        `<span class="text-green-500 text-sm"><i class="fas fa-check-circle ml-1"></i>تسویه شده</span>`
+                                    }
+                                    <button class="text-red-500 text-sm hover:text-red-700 transition-all" onclick="deleteDebt(${debt.id})">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = debtsHTML;
+        }
+        
+        function settleDebt(debtId) {
+            showCustomConfirm('آیا مطمئن هستید که این قرض/امانت تسویه شده است؟', () => {
+                const debt = debts.find(d => d.id === debtId);
+                if (debt) {
+                    debt.status = 'settled';
+                    localStorage.setItem('debts', JSON.stringify(debts));
+                    renderDebtsList();
+                    renderDashboard();
+                    showCustomAlert('قرض/امانت تسویه شد', 'success');
+                }
+            });
+        }
+        
+        function deleteDebt(debtId) {
+            showCustomConfirm('آیا مطمئن هستید که می‌خواهید این قرض/امانت را حذف کنید؟', () => {
+                debts = debts.filter(debt => debt.id !== debtId);
+                localStorage.setItem('debts', JSON.stringify(debts));
+                renderDebtsList();
+                renderDashboard();
+                showCustomAlert('قرض/امانت حذف شد', 'success');
+            });
+        }
+        
+        function renderTransactionAccountOptions() {
+            const accountSelect = document.getElementById('transactionAccount');
+            const toAccountSelect = document.getElementById('transactionToAccount');
+            
+            const optionsHTML = accounts.map(account => 
+                `<option value="${account.id}">${account.name} (${account.currency})</option>`
+            ).join('');
+            
+            accountSelect.innerHTML = '<option value="">انتخاب کنید</option>' + optionsHTML;
+            toAccountSelect.innerHTML = '<option value="">انتخاب کنید</option>' + optionsHTML;
+        }
+        
+        function addTransaction() {
+            const type = document.getElementById('transactionType').value;
+            const accountId = parseInt(document.getElementById('transactionAccount').value);
+            const toAccountId = parseInt(document.getElementById('transactionToAccount').value);
+            const amount = parseFloat(document.getElementById('transactionAmount').value);
+            const date = document.getElementById('transactionDate').value;
+            const category = document.getElementById('transactionCategory').value;
+            const description = document.getElementById('transactionDescription').value.trim();
+            
+            if (!accountId || !amount || !date) {
+                showCustomAlert('لطفاً همه فیلدهای ضروری را پر کنید', 'error');
+                return;
+            }
+            
+            if (type === 'transfer' && !toAccountId) {
+                showCustomAlert('لطفاً حساب مقصد را انتخاب کنید', 'error');
+                return;
+            }
+            
+            const transaction = {
+                id: Date.now(),
+                type,
+                accountId,
+                toAccountId: type === 'transfer' ? toAccountId : null,
+                amount,
+                date,
+                category,
+                description,
+                created: new Date().toISOString()
+            };
+            
+            transactions.push(transaction);
+            
+            // Update account balances
+            const account = accounts.find(acc => acc.id === accountId);
+            if (type === 'income') {
+                account.balance += amount;
+            } else if (type === 'expense') {
+                account.balance -= amount;
+            } else if (type === 'transfer') {
+                const toAccount = accounts.find(acc => acc.id === toAccountId);
+                account.balance -= amount;
+                toAccount.balance += amount;
+            }
+            
+            localStorage.setItem('transactions', JSON.stringify(transactions));
+            localStorage.setItem('accounts', JSON.stringify(accounts));
+            
+            // Clear form
+            document.getElementById('transactionAmount').value = '';
+            document.getElementById('transactionDescription').value = '';
+            
+            renderTransactionsList();
+            renderDashboard();
+            showCustomAlert('تراکنش با موفقیت ثبت شد!', 'success');
+        }
+        
+        function renderTransactionsList() {
+            const container = document.getElementById('transactionsList');
+            
+            if (transactions.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="fas fa-receipt text-gray-400 text-4xl mb-3"></i>
+                        <p class="text-gray-600 dark:text-gray-400">هیچ تراکنشی یافت نشد</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const sortedTransactions = [...transactions].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            const transactionsHTML = sortedTransactions.map(transaction => {
+                const account = accounts.find(acc => acc.id === transaction.accountId);
+                const toAccount = transaction.toAccountId ? accounts.find(acc => acc.id === transaction.toAccountId) : null;
+                const currencySymbol = getCurrencySymbol(account?.currency || 'USD');
+                
+                let typeIcon, typeColor, typeText;
+                if (transaction.type === 'income') {
+                    typeIcon = 'fa-arrow-up';
+                    typeColor = 'text-green-500';
+                    typeText = 'درآمد';
+                } else if (transaction.type === 'expense') {
+                    typeIcon = 'fa-arrow-down';
+                    typeColor = 'text-red-500';
+                    typeText = 'هزینه';
+                } else {
+                    typeIcon = 'fa-exchange-alt';
+                    typeColor = 'text-blue-500';
+                    typeText = 'انتقال';
+                }
+                
+                return `
+                    <div class="card-hover p-4 rounded-xl bg-gray-50 dark:bg-gray-700/30 mb-3">
+                        <div class="flex justify-between items-start">
+                            <div class="flex items-start">
+                                <i class="fas ${typeIcon} ${typeColor} text-xl mt-1 ml-3"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 dark:text-white">${transaction.description || getCategoryName(transaction.category)}</h4>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                                        ${typeText} • ${account?.name || 'نامشخص'}
+                                        ${transaction.type === 'transfer' ? ` ← ${toAccount?.name || 'نامشخص'}` : ''}
+                                    </p>
+                                    <p class="text-gray-500 text-xs">${transaction.date}</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-gray-800 dark:text-white text-lg">${transaction.amount.toLocaleString()} ${currencySymbol}</p>
+                                <button class="text-red-500 text-sm hover:text-red-700 transition-all" onclick="deleteTransaction(${transaction.id})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = transactionsHTML;
+        }
+        
+        function deleteTransaction(transactionId) {
+            showCustomConfirm('آیا مطمئن هستید که می‌خواهید این تراکنش را حذف کنید؟', () => {
+                transactions = transactions.filter(transaction => transaction.id !== transactionId);
+                localStorage.setItem('transactions', JSON.stringify(transactions));
+                renderTransactionsList();
+                renderDashboard();
+                showCustomAlert('تراکنش حذف شد', 'success');
+            });
+        }
+        
+        function renderCurrenciesList() {
+            const container = document.getElementById('currenciesList');
+            
+            const currenciesHTML = currencies.map(currency => {
+                const isDefault = currency.code === defaultCurrency;
+                const rate = exchangeRates[currency.code] || 1;
+                
+                return `
+                    <div class="flex justify-between items-center p-3 rounded-lg ${isDefault ? 'bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-700' : 'bg-gray-50 dark:bg-gray-700/30'} card-hover cursor-pointer transition-all" onclick="setDefaultCurrency('${currency.code}')">
+                        <div class="flex items-center">
+                            <span class="text-xl ml-3">${currency.flag}</span>
+                            <div>
+                                <span class="font-bold text-gray-800 dark:text-white">${currency.name}</span>
+                                <span class="text-gray-600 dark:text-gray-400 text-sm mr-2">(${currency.code})</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            ${isDefault ? 
+                                '<span class="text-green-500 font-bold"><i class="fas fa-check-circle ml-1"></i>پیش‌فرض</span>' : 
+                                `<span class="text-gray-500 text-sm">1 ${currency.code} = ${(rate * exchangeRates[defaultCurrency]).toFixed(6)} ${defaultCurrency}</span>`
+                            }
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = `<div class="space-y-2">${currenciesHTML}</div>`;
+        }
+        
+        function setDefaultCurrency(currencyCode) {
+            defaultCurrency = currencyCode;
+            localStorage.setItem('defaultCurrency', currencyCode);
+            renderCurrenciesList();
+            renderDashboard();
+            showCustomAlert(`${getCurrencyName(currencyCode)} به عنوان ارز پیش‌فرض تنظیم شد`, 'success');
+        }
+        
+        function updateExchangeRate() {
+            const fromCurrency = document.getElementById('fromCurrency').value;
+            const toCurrency = document.getElementById('toCurrency').value;
+            const rate = parseFloat(document.getElementById('exchangeRate').value);
+            
+            if (!rate || rate <= 0) {
+                showCustomAlert('لطفاً نرخ تبدیل معتبری وارد کنید', 'error');
+                return;
+            }
+            
+            // Update exchange rate (relative to base currency)
+            exchangeRates[fromCurrency] = rate;
+            localStorage.setItem('exchangeRates', JSON.stringify(exchangeRates));
+            
+            renderCurrenciesList();
+            showCustomAlert('نرخ تبدیل به‌روزرسانی شد', 'success');
+        }
+        
+        function addNewCurrency() {
+            const name = document.getElementById('newCurrencyName').value.trim();
+            const code = document.getElementById('newCurrencyCode').value.trim().toUpperCase();
+            const flag = document.getElementById('newCurrencySymbol').value.trim();
+            
+            if (!name || !code || !flag) {
+                showCustomAlert('لطفاً همه فیلدها را پر کنید', 'error');
+                return;
+            }
+            
+            if (currencies.find(c => c.code === code)) {
+                showCustomAlert('این ارز قبلاً اضافه شده است', 'error');
+                return;
+            }
+            
+            const newCurrency = { code, name, flag };
+            currencies.push(newCurrency);
+            exchangeRates[code] = 1; // Default rate
+            
+            localStorage.setItem('currencies', JSON.stringify(currencies));
+            localStorage.setItem('exchangeRates', JSON.stringify(exchangeRates));
+            
+            // Clear form
+            document.getElementById('newCurrencyName').value = '';
+            document.getElementById('newCurrencyCode').value = '';
+            document.getElementById('newCurrencySymbol').value = '';
+            
+            renderCurrenciesList();
+            showCustomAlert('ارز جدید اضافه شد', 'success');
+        }
+        
+        // Helper functions
+        function getCurrencySymbol(currency) {
+            const symbols = {
+                'IRR': 'ریال',
+                'USD': '$',
+                'EUR': '€',
+                'AFN': '؋',
+                'GBP': '£',
+                'AED': 'درهم'
+            };
+            return symbols[currency] || currency;
+        }
+        
+        function getCurrencyName(currency) {
+            const names = {
+                'IRR': 'تومان',
+                'USD': 'دلار آمریکا',
+                'EUR': 'یورو',
+                'AFN': 'افغانی',
+                'GBP': 'پوند انگلیس',
+                'AED': 'درهم امارات'
+            };
+            return names[currency] || currency;
+        }
+        
+        function getCurrencyFlag(currency) {
+            const flags = {
+                'IRR': '🇮🇷',
+                'USD': '🇺🇸',
+                'EUR': '🇪🇺',
+                'AFN': '🇦🇫',
+                'GBP': '🇬🇧',
+                'AED': '🇦🇪'
+            };
+            return flags[currency] || '💰';
+        }
+        
+        function getAccountTypeIcon(type) {
+            const icons = {
+                'cash': '💵',
+                'bank': '🏦',
+                'card': '💳',
+                'wallet': '👛'
+            };
+            return icons[type] || '💵';
+        }
+        
+        function getCategoryName(category) {
+            const categories = {
+                'food': 'غذا',
+                'transport': 'حمل‌ونقل',
+                'entertainment': 'سرگرمی',
+                'shopping': 'خرید',
+                'bills': 'قبوض',
+                'salary': 'حقوق',
+                'business': 'کسب‌وکار',
+                'other': 'سایر'
+            };
+            return categories[category] || 'سایر';
+        }
+        
+        function saveProfile() {
+            const profileName = document.getElementById('profileName').value.trim();
+            if (!profileName) {
+                showCustomAlert('لطفاً نام کاربری را وارد کنید', 'error');
+                return;
+            }
+            
+            localStorage.setItem('profileName', profileName);
+            document.getElementById('currentUserName').textContent = profileName;
+            showCustomAlert('پروفایل ذخیره شد', 'success');
+        }
+        
+        function addNewUser() {
+            const userName = document.getElementById('newUserName').value.trim();
+            if (!userName) {
+                showCustomAlert('لطفاً نام کاربری جدید را وارد کنید', 'error');
+                return;
+            }
+            
+            // For demo purposes, just show success message
+            document.getElementById('newUserName').value = '';
+            showCustomAlert('قابلیت ایجاد کاربر جدید در نسخه بعدی اضافه خواهد شد', 'info');
+        }
+        
+        function exportData() {
+            const data = {
+                accounts,
+                transactions,
+                persons,
+                debts,
+                defaultCurrency,
+                exchangeRates,
+                currencies,
+                exportDate: new Date().toISOString(),
+                version: '2.0'
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `accounting-backup-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+            
+            showCustomAlert('فایل پشتیبان دانلود شد', 'success');
+        }
+        
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        try {
+                            const data = JSON.parse(e.target.result);
+                            
+                            // Validate data structure
+                            if (data.accounts && data.transactions && data.version) {
+                                accounts = data.accounts || [];
+                                transactions = data.transactions || [];
+                                persons = data.persons || [];
+                                debts = data.debts || [];
+                                defaultCurrency = data.defaultCurrency || 'USD';
+                                exchangeRates = data.exchangeRates || {};
+                                currencies = data.currencies || [];
+                                
+                                // Save to localStorage
+                                localStorage.setItem('accounts', JSON.stringify(accounts));
+                                localStorage.setItem('transactions', JSON.stringify(transactions));
+                                localStorage.setItem('persons', JSON.stringify(persons));
+                                localStorage.setItem('debts', JSON.stringify(debts));
+                                localStorage.setItem('defaultCurrency', defaultCurrency);
+                                localStorage.setItem('exchangeRates', JSON.stringify(exchangeRates));
+                                localStorage.setItem('currencies', JSON.stringify(currencies));
+                                
+                                // Refresh UI
+                                renderDashboard();
+                                renderAccountsList();
+                                renderCurrenciesList();
+                                renderPersonOptions();
+                                renderDebtsList();
+                                
+                                showCustomAlert('داده‌ها با موفقیت بازیابی شدند', 'success');
+                            } else {
+                                showCustomAlert('فرمت فایل نامعتبر است', 'error');
+                            }
+                        } catch (err) {
+                            showCustomAlert('خطا در خواندن فایل', 'error');
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            };
+            input.click();
+        }
+        
+        function showCustomAlert(message, type = 'info') {
+            const alertModal = document.createElement('div');
+            alertModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            
+            const colorClass = type === 'success' ? 'text-green-500' : type === 'error' ? 'text-red-500' : 'text-blue-500';
+            const iconClass = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle';
+            
+            alertModal.innerHTML = `
+                <div class="glass-strong rounded-2xl p-6 max-w-sm w-full mx-4 animate-slide-up">
+                    <div class="text-center">
+                        <i class="fas ${iconClass} ${colorClass} text-4xl mb-4"></i>
+                        <p class="text-gray-800 dark:text-white mb-4">${message}</p>
+                        <button class="btn-primary text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all" onclick="this.closest('.fixed').remove()">
+                            تأیید
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(alertModal);
+            setTimeout(() => {
+                if (alertModal && alertModal.parentNode) {
+                    alertModal.remove();
+                }
+            }, 3000);
+        }
+        
+        function showCustomConfirm(message, onConfirm) {
+            const confirmModal = document.createElement('div');
+            confirmModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            
+            confirmModal.innerHTML = `
+                <div class="glass-strong rounded-2xl p-6 max-w-sm w-full mx-4 animate-slide-up">
+                    <div class="text-center">
+                        <i class="fas fa-question-circle text-yellow-500 text-4xl mb-4"></i>
+                        <p class="text-gray-800 dark:text-white mb-6">${message}</p>
+                        <div class="flex space-x-3 space-x-reverse">
+                            <button class="flex-1 py-2 px-4 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500 transition-all" onclick="this.closest('.fixed').remove()">
+                                انصراف
+                            </button>
+                            <button class="flex-1 py-2 px-4 btn-primary text-white rounded-lg hover:shadow-lg transition-all" onclick="this.closest('.fixed').remove(); (${onConfirm})()">
+                                تأیید
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(confirmModal);
+        }
+        
+        function showDeleteConfirmation() {
+            document.getElementById('confirmModal').classList.remove('hidden');
+        }
+        
+        function hideDeleteConfirmation() {
+            document.getElementById('confirmModal').classList.add('hidden');
+        }
+        
+        function confirmDelete() {
+            localStorage.clear();
+            accounts = [];
+            transactions = [];
+            persons = [];
+            debts = [];
+            defaultCurrency = 'USD';
+            exchangeRates = {"USD": 1, "EUR": 1.1, "AFN": 0.0138, "IRR": 0.000023, "GBP": 1.25, "AED": 0.27};
+            currencies = [{"code": "USD", "name": "دلار آمریکا", "flag": "🇺🇸"}, {"code": "EUR", "name": "یورو", "flag": "🇪🇺"}, {"code": "IRR", "name": "تومان", "flag": "🇮🇷"}, {"code": "AFN", "name": "افغانی", "flag": "🇦🇫"}, {"code": "GBP", "name": "پوند انگلیس", "flag": "🇬🇧"}, {"code": "AED", "name": "درهم امارات", "flag": "🇦🇪"}];
+            
+            hideDeleteConfirmation();
+            renderDashboard();
+            renderAccountsList();
+            renderCurrenciesList();
+            renderPersonOptions();
+            renderDebtsList();
+            showCustomAlert('همه داده‌ها پاک شدند!', 'success');
+        }
+        
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            // Transaction type change handler
+            document.getElementById('transactionType').addEventListener('change', function() {
+                const transferDiv = document.getElementById('transferToAccount');
+                if (this.value === 'transfer') {
+                    transferDiv.classList.remove('hidden');
+                } else {
+                    transferDiv.classList.add('hidden');
+                }
+            });
+            
+            // Filter buttons for transactions
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => {
+                        b.classList.remove('active', 'bg-blue-100', 'text-blue-700', 'dark:bg-blue-900/30', 'dark:text-blue-400');
+                        b.classList.add('text-gray-600', 'dark:text-gray-400', 'hover:bg-gray-100', 'dark:hover:bg-gray-700/30');
+                    });
+                    this.classList.remove('text-gray-600', 'dark:text-gray-400', 'hover:bg-gray-100', 'dark:hover:bg-gray-700/30');
+                    this.classList.add('active', 'bg-blue-100', 'text-blue-700', 'dark:bg-blue-900/30', 'dark:text-blue-400');
+                    
+                    // Filter logic would go here
+                    const filter = this.dataset.filter;
+                    // For now, just re-render all transactions
+                    renderTransactionsList();
+                });
+            });
+            
+            // Filter buttons for debts
+            document.querySelectorAll('.debt-filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.debt-filter-btn').forEach(b => {
+                        b.classList.remove('active', 'bg-blue-100', 'text-blue-700', 'dark:bg-blue-900/30', 'dark:text-blue-400');
+                        b.classList.add('text-gray-600', 'dark:text-gray-400', 'hover:bg-gray-100', 'dark:hover:bg-gray-700/30');
+                    });
+                    this.classList.remove('text-gray-600', 'dark:text-gray-400', 'hover:bg-gray-100', 'dark:hover:bg-gray-700/30');
+                    this.classList.add('active', 'bg-blue-100', 'text-blue-700', 'dark:bg-blue-900/30', 'dark:text-blue-400');
+                    
+                    // Filter logic would go here
+                    const filter = this.dataset.filter;
+                    // For now, just re-render all debts
+                    renderDebtsList();
+                });
+            });
+            
+            // Add ripple effect to buttons
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if (!button.querySelector('.ripple')) {
+                        const ripple = document.createElement('span');
+                        const rect = this.getBoundingClientRect();
+                        const size = Math.max(rect.width, rect.height);
+                        const x = e.clientX - rect.left - size / 2;
+                        const y = e.clientY - rect.top - size / 2;
+                        
+                        ripple.style.width = ripple.style.height = size + 'px';
+                        ripple.style.left = x + 'px';
+                        ripple.style.top = y + 'px';
+                        ripple.classList.add('ripple');
+                        
+                        this.style.position = 'relative';
+                        this.style.overflow = 'hidden';
+                        this.appendChild(ripple);
+                        
+                        setTimeout(() => {
+                            ripple.remove();
+                        }, 600);
+                    }
+                });
+            });
+            
+            // Set current date for date inputs
+            const today = new Date().toISOString().split('T')[0];
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            dateInputs.forEach(input => {
+                input.value = today;
+            });
+            
+            // Load profile name
+            const savedProfileName = localStorage.getItem('profileName');
+            if (savedProfileName) {
+                document.getElementById('currentUserName').textContent = savedProfileName;
+                document.getElementById('profileName').value = savedProfileName;
+            }
+            
+            // Initialize UI
+            renderDashboard();
+            renderPersonOptions();
+        });
+        
+      
+// PWA Service Worker Registration with Update Management
+let swRegistration = null;
+let isUpdateAvailable = false;
+
+window.addEventListener('load', async () => {
+  console.log('🚀 Initializing PWA...');
+  
+  // Register Service Worker
+  if ('serviceWorker' in navigator) {
+    try {
+      swRegistration = await navigator.serviceWorker.register('./sw.js', {
+        scope: './'
+      });
+      
+      console.log('✅ SW registered: ', swRegistration.scope);
+      
+      // Listen for SW updates
+      swRegistration.addEventListener('updatefound', () => {
+        console.log('🔄 SW update found');
+        const newWorker = swRegistration.installing;
+        
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed') {
+            if (navigator.serviceWorker.controller) {
+              console.log('📦 New content is available');
+              isUpdateAvailable = true;
+              showUpdateNotification();
+            } else {
+              console.log('📱 Content is cached for offline use');
+              showCacheReadyNotification();
+            }
+          }
+        });
+      });
+      
+    } catch (error) {
+      console.error('❌ SW registration failed: ', error);
+    }
+  }
+
+  // Initialize other PWA features
+  initializeInstallPrompt();
+  initializeNotifications();
+  initializeBackgroundSync();
+  initializeNetworkStatus();
+  initializePeriodicSync();
+  handleUrlParameters();
+});
+
+// Install Prompt Management
+let deferredPrompt;
+let installButton = null;
+
+function initializeInstallPrompt() {
+  window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('💾 Install prompt triggered');
+    e.preventDefault();
+    deferredPrompt = e;
+    showInstallButton();
+  });
+
+  // Handle successful installation
+  window.addEventListener('appinstalled', () => {
+    console.log('🎉 PWA was installed');
+    hideInstallButton();
+    showToast('برنامه با موفقیت نصب شد! 🎉', 'success');
+    deferredPrompt = null;
+  });
+}
+
+function showInstallButton() {
+  if (installButton) return;
+  
+  installButton = document.createElement('button');
+  installButton.innerHTML = `
+    <span style="margin-left: 8px;">📱</span>
+    نصب برنامه
+  `;
+  installButton.id = 'install-btn';
+  installButton.className = 'fixed bottom-4 left-4 bg-primary text-white px-4 py-3 rounded-lg shadow-lg z-50 text-sm font-medium flex items-center hover:bg-primary/90 transition-colors';
+  installButton.style.cssText = `
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    background: #5D5CDE !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(93, 92, 222, 0.3) !important;
+    z-index: 1000 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    animation: slideInLeft 0.3s ease-out !important;
+  `;
+  
+  installButton.onclick = installApp;
+  document.body.appendChild(installButton);
+  
+  // Auto hide after 15 seconds
+  setTimeout(() => {
+    if (installButton && deferredPrompt) {
+      hideInstallButton();
+    }
+  }, 15000);
+}
+
+async function installApp() {
+  if (!deferredPrompt) return;
+  
+  console.log('🔄 Showing install prompt');
+  deferredPrompt.prompt();
+  
+  const { outcome } = await deferredPrompt.userChoice;
+  
+  if (outcome === 'accepted') {
+    console.log('✅ User accepted install');
+  } else {
+    console.log('❌ User dismissed install');
+    showToast('شما می‌توانید بعداً از منوی مرورگر برنامه را نصب کنید', 'info');
+  }
+  
+  deferredPrompt = null;
+  hideInstallButton();
+}
+
+function hideInstallButton() {
+  if (installButton) {
+    installButton.remove();
+    installButton = null;
+  }
+}
+
+// Update Management
+function showUpdateNotification() {
+  const updateNotification = createNotificationElement({
+    title: '🔄 نسخه جدید آماده است!',
+    message: 'نسخه جدیدی از برنامه در دسترس است. آیا می‌خواهید به‌روزرسانی کنید؟',
+    type: 'info',
+    persistent: true,
+    buttons: [
+      {
+        text: 'به‌روزرسانی',
+        action: updateApp,
+        primary: true
+      },
+      {
+        text: 'بعداً',
+        action: () => updateNotification.remove()
+      }
+    ]
+  });
+}
+
+function showCacheReadyNotification() {
+  showToast('برنامه برای استفاده آفلاین آماده شد! 📱', 'success');
+}
+
+async function updateApp() {
+  if (!swRegistration || !swRegistration.waiting) return;
+  
+  console.log('🔄 Updating app');
+  showToast('در حال به‌روزرسانی...', 'info');
+  
+  swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
+  
+  // Reload page after update
+  window.location.reload();
+}
+
+// Notification System
+function initializeNotifications() {
+  // Request notification permission
+  if ('Notification' in window && 'serviceWorker' in navigator) {
+    if (Notification.permission === 'default') {
+      setTimeout(() => {
+        showNotificationPermissionRequest();
+      }, 5000);
+    }
+  }
+  
+  // Listen for SW messages
+  navigator.serviceWorker?.addEventListener('message', (event) => {
+    console.log('📩 Message from SW:', event.data);
+    
+    if (event.data?.type === 'SYNC_COMPLETE') {
+      const { type, count } = event.data.data;
+      showToast(`${count} ${type === 'transactions' ? 'تراکنش' : 'حساب'} همگام‌سازی شد ✅`, 'success');
+    }
+  });
+}
+
+function showNotificationPermissionRequest() {
+  const permissionPrompt = createNotificationElement({
+    title: '🔔 دریافت اطلاع‌رسانی',
+    message: 'آیا می‌خواهید در مورد تراکنش‌های مهم اطلاع‌رسانی دریافت کنید؟',
+    type: 'info',
+    persistent: true,
+    buttons: [
+      {
+        text: 'بله',
+        action: async () => {
+          const permission = await Notification.requestPermission();
+          if (permission === 'granted') {
+            showToast('اطلاع‌رسانی‌ها فعال شدند! 🔔', 'success');
+          }
+          permissionPrompt.remove();
+        },
+        primary: true
+      },
+      {
+        text: 'خیر',
+        action: () => permissionPrompt.remove()
+      }
+    ]
+  });
+}
+
+// Background Sync
+function initializeBackgroundSync() {
+  if ('serviceWorker' in navigator && 'sync' in window.ServiceWorkerRegistration.prototype) {
+    console.log('✅ Background sync supported');
+    
+    // Register sync when going online
+    window.addEventListener('online', () => {
+      console.log('🌐 Back online - registering background sync');
+      navigator.serviceWorker.ready.then(registration => {
+        return Promise.all([
+          registration.sync.register('sync-transactions'),
+          registration.sync.register('sync-accounts')
+        ]);
+      });
+    });
+  }
+}
+
+// Periodic Background Sync (if supported)
+async function initializePeriodicSync() {
+  if ('serviceWorker' in navigator && 'periodicSync' in window.ServiceWorkerRegistration.prototype) {
+    const registration = await navigator.serviceWorker.ready;
+    
+    // Request periodic sync for data backup
+    try {
+      await registration.periodicSync.register('data-backup', {
+        minInterval: 24 * 60 * 60 * 1000, // 24 hours
+      });
+      console.log('✅ Periodic sync registered');
+    } catch (error) {
+      console.log('❌ Periodic sync not supported:', error);
+    }
+  }
+}
+
+// Network Status Management
+let networkStatusEl = null;
+let isOnline = navigator.onLine;
+
+function initializeNetworkStatus() {
+  updateNetworkStatus();
+  
+  window.addEventListener('online', handleOnline);
+  window.addEventListener('offline', handleOffline);
+  
+  // Monitor connection quality
+  if ('connection' in navigator) {
+    navigator.connection.addEventListener('change', handleConnectionChange);
+  }
+}
+
+function handleOnline() {
+  console.log('🌐 Network: Online');
+  isOnline = true;
+  updateNetworkStatus();
+  showToast('ارتباط برقرار شد 🌐', 'success');
+  
+  // Trigger background sync
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready.then(registration => {
+      return Promise.all([
+        registration.sync.register('sync-transactions'),
+        registration.sync.register('sync-accounts')
+      ]);
+    });
+  }
+}
+
+function handleOffline() {
+  console.log('📱 Network: Offline');
+  isOnline = false;
+  updateNetworkStatus();
+  showToast('ارتباط قطع شد - حالت آفلاین 📱', 'warning', 5000);
+}
+
+function handleConnectionChange() {
+  const connection = navigator.connection;
+  console.log('🔄 Connection changed:', {
+    effectiveType: connection.effectiveType,
+    downlink: connection.downlink,
+    rtt: connection.rtt
+  });
+  
+  if (connection.effectiveType === 'slow-2g') {
+    showToast('ارتباط کند تشخیص داده شد 🐌', 'warning');
+  }
+}
+
+function updateNetworkStatus() {
+  if (!networkStatusEl) {
+    networkStatusEl = document.createElement('div');
+    networkStatusEl.id = 'network-status';
+    networkStatusEl.style.cssText = `
+      position: fixed !important;
+      top: 10px !important;
+      left: 10px !important;
+      padding: 6px 12px !important;
+      border-radius: 6px !important;
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      z-index: 1000 !important;
+      transition: all 0.3s ease !important;
+      backdrop-filter: blur(10px) !important;
+    `;
+    document.body.appendChild(networkStatusEl);
+  }
+  
+  const status = isOnline ? 'آنلاین' : 'آفلاین';
+  const emoji = isOnline ? '🟢' : '🔴';
+  const bgColor = isOnline ? 'rgba(16, 185, 129, 0.9)' : 'rgba(239, 68, 68, 0.9)';
+  
+  networkStatusEl.innerHTML = `${emoji} ${status}`;
+  networkStatusEl.style.background = bgColor;
+  networkStatusEl.style.color = 'white';
+  
+  if (isOnline) {
+    setTimeout(() => {
+      if (networkStatusEl && isOnline) {
+        networkStatusEl.style.opacity = '0';
+        setTimeout(() => {
+          if (networkStatusEl && networkStatusEl.style.opacity === '0') {
+            networkStatusEl.remove();
+            networkStatusEl = null;
+          }
+        }, 300);
+      }
+    }, 3000);
+  } else {
+    networkStatusEl.style.opacity = '1';
+  }
+}
+
+// URL Parameters Handler (for shortcuts)
+function handleUrlParameters() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const tab = urlParams.get('tab');
+  
+  if (tab && typeof showTab === 'function') {
+    setTimeout(() => {
+      showTab(tab);
+      
+      // Focus on appropriate form field
+      if (tab === 'transactions') {
+        document.getElementById('amount')?.focus();
+      } else if (tab === 'accounts') {
+        document.getElementById('accountName')?.focus();
+      }
+    }, 100);
+  }
+}
+
+// Utility Functions
+function createNotificationElement({ title, message, type = 'info', persistent = false, buttons = [] }) {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    background: white !important;
+    color: #1f2937 !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+    max-width: 400px !important;
+    z-index: 1001 !important;
+    border-left: 4px solid #5D5CDE !important;
+    animation: slideInRight 0.3s ease-out !important;
+  `;
+  
+  const typeColors = {
+    success: '#10b981',
+    error: '#ef4444',
+    warning: '#f59e0b',
+    info: '#5D5CDE'
+  };
+  
+  notification.style.borderLeftColor = typeColors[type] + ' !important';
+  
+  let buttonsHtml = '';
+  if (buttons.length > 0) {
+    buttonsHtml = `
+      <div style="margin-top: 15px; display: flex; gap: 10px; justify-content: flex-end;">
+        ${buttons.map(btn => `
+          <button 
+            onclick="${btn.action.name}(); this.closest('div[style*=\"position: fixed\"]').remove();"
+            style="
+              padding: 8px 16px !important;
+              border-radius: 6px !important;
+              border: none !important;
+              cursor: pointer !important;
+              font-size: 14px !important;
+              ${btn.primary ? 
+                'background: #5D5CDE !important; color: white !important;' : 
+                'background: #f3f4f6 !important; color: #374151 !important;'
+              }
+            "
+          >${btn.text}</button>
+        `).join('')}
+      </div>
+    `;
+  }
+  
+  notification.innerHTML = `
+    <div>
+      <h4 style="margin: 0 0 8px 0; font-weight: 600; font-size: 16px;">${title}</h4>
+      <p style="margin: 0; line-height: 1.5; color: #6b7280;">${message}</p>
+      ${buttonsHtml}
+    </div>
+  `;
+  
+  document.body.appendChild(notification);
+  
+  if (!persistent) {
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.style.animation = 'slideOutRight 0.3s ease-in';
+        setTimeout(() => notification.remove(), 300);
+      }
+    }, 5000);
+  }
+  
+  return notification;
+}
+
+function showToast(message, type = 'info', duration = 3000) {
+  const toast = document.createElement('div');
+  
+  const typeStyles = {
+    success: 'background: #10b981 !important;',
+    error: 'background: #ef4444 !important;',
+    warning: 'background: #f59e0b !important;',
+    info: 'background: #5D5CDE !important;'
+  };
+  
+  toast.style.cssText = `
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    ${typeStyles[type]}
+    color: white !important;
+    padding: 12px 20px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    z-index: 1002 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    max-width: 300px !important;
+    animation: slideInUp 0.3s ease-out !important;
+  `;
+  
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  
+  setTimeout(() => {
+    if (toast.parentNode) {
+      toast.style.animation = 'slideOutDown 0.3s ease-in';
+      setTimeout(() => toast.remove(), 300);
+    }
+  }, duration);
+  
+  return toast;
+}
+
+// Add CSS animations
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+  }
+  @keyframes slideInUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes slideOutDown {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(100%); opacity: 0; }
+  }
+  @keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+`;
+document.head.appendChild(style);
+
+console.log('🎉 PWA initialized successfully!');
+</script> 
+ 
+</body></html>

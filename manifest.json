@@ -1,0 +1,96 @@
+<html><head></head><body>{
+  "name": "حسابداری من - سیستم مدیریت مالی حرفه‌ای",
+  "short_name": "حسابداری من",
+  "description": "سیستم مدیریت مالی حرفه‌ای با پشتیبانی از چند ارز، تراکنش‌ها و قرض‌ها",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#181818",
+  "theme_color": "#5D5CDE",
+  "orientation": "portrait-primary",
+  "lang": "fa",
+  "dir": "rtl",
+  "categories": ["finance", "productivity", "business"],
+  "icons": [
+    {
+      "src": "icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "تراکنش جدید",
+      "short_name": "تراکنش",
+      "description": "ایجاد تراکنش جدید",
+      "url": "./?tab=transactions",
+      "icons": [{ "src": "./icons/shortcut-transaction.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "حساب جدید",
+      "short_name": "حساب",
+      "description": "ایجاد حساب جدید",
+      "url": "./?tab=accounts",
+      "icons": [{ "src": "./icons/shortcut-account.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "داشبورد",
+      "short_name": "داشبورد",
+      "description": "مشاهده داشبورد مالی",
+      "url": "./?tab=dashboard",
+      "icons": [{ "src": "./icons/shortcut-dashboard.png", "sizes": "96x96" }]
+    }
+  ],
+  "share_target": {
+    "action": "./",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}</body></html>
